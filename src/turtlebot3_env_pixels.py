@@ -59,7 +59,7 @@ class TurtleBot3EnvPixels(gym.Env):
         self.goal_y = 0
         self.heading = 0
         self.initGoal = True
-        self.get_goalbox = False
+        self.get_goal = False
         self.use_angle_vel = use_angle_vel
         self.use_pixels_space = use_pixels_space
         self.reduce_coverage_state = reduce_coverage_state
@@ -263,7 +263,7 @@ class TurtleBot3EnvPixels(gym.Env):
             done = True
         if self.covered>self.grids_to_cover*self.percentage_coverage_goal:
             print('Goal!! Covered grids: ', self.covered)
-            self.get_goalbox = True
+            self.get_goal = True
             done = True
         if self.use_pixels_space:
             return self.maps, done
@@ -272,12 +272,12 @@ class TurtleBot3EnvPixels(gym.Env):
             obs = np.append(obs, self.maps[:,:,1].flatten())
             return obs, done
 
-    def setReward(self, state, done, action):
+    def setReward(self, done):
                 
         if self.get_goal:
             reward = self.reward_covered*(self.covered - 0.4*self.covered_twice)
             reward = self.reward_goal
-            self.get_goalbox = False
+            self.get_goal = False
             self.pub_cmd_vel.publish(Twist())
         elif done:
             reward = self.reward_collision + self.reward_covered*(self.covered - 0.4*self.covered_twice)
@@ -323,7 +323,7 @@ class TurtleBot3EnvPixels(gym.Env):
                 pass
 
         state, done = self.getState(data)
-        reward = self.setReward(state, done, action)
+        reward = self.setReward(done)
         self.num_timesteps += 1
 
         return np.asarray(state), reward, done, {}
