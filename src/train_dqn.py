@@ -29,7 +29,7 @@ env = gym.make(env_name)
 env = DummyVecEnv([lambda: env])
 
 model = DQN(CnnPolicy, env, prioritized_replay=True, policy_kwargs=policy_kwargs,
-buffer_size=100000, learning_rate=0.0003, target_network_update_freq=8000, learning_starts=10000, 
+buffer_size=100000, learning_rate=0.0003, target_network_update_freq=8000, learning_starts=1000, 
 exploration_fraction=0.2, exploration_final_eps=0, verbose=1, tensorboard_log="./deepq_custom_tutlebot_tensorboard/")
 #model.load(env_name+"_custom_dqn")
 class TensorboardCallback(BaseCallback):
