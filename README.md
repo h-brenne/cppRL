@@ -1,5 +1,5 @@
 # cppRL
-Coverage path planning with Reinforcement Learning. Using ROS, controlling a TurtleBot3 with a UV lamp to cover an area with a minimum UV energy to kill coronavirus.
+Coverage path planning with Reinforcement Learning. Using ROS, controlling a TurtleBot3 with a UV lamp to cover an area with a minimum UV energy to kill coronavirus. Gym environment implementation were based on the implementation from [gym-turtlebot3](https://github.com/ITTcs/gym-turtlebot3)
 ## Setup and Instalation 
 ROS is required for the simulation. Requires ROS-UV-Cleaning-Robot, can be pulled as a submodule with `git submodule update --init --recursive` 
 
