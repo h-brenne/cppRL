@@ -1,5 +1,7 @@
 # cppRL
 Coverage path planning with Reinforcement Learning. Using ROS, controlling a TurtleBot3 with a UV lamp to cover an area with a minimum UV energy to kill coronavirus.
+![Alt text](img/uv_lamp_sim.png?raw=true "sim")
+
 ## Setup and Instalation 
 ROS is required for the simulation. Requires UVC lamp from ... 
 
