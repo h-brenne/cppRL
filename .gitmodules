@@ -1,0 +1,4 @@
+[submodule "ROS-UV-Cleaning-Robot"]
+	path = ROS-UV-Cleaning-Robot
+	url = https://github.com/h-brenne/ROS-UV-Cleaning-Robot.git
+	branch = RL_low_rate
